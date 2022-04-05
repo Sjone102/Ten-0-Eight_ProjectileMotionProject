@@ -1,0 +1,31 @@
+PVector location;
+PVector velocity;
+int value = 0;
+
+void setup() {
+  size(640, 360);
+  location = new PVector(0, 100);
+  velocity = new PVector(2.5, 5);
+}
+
+void draw() {
+  background(255);
+  
+     location.add(velocity);
+    if ((location.x > width) || (location.x < 0)) {
+      velocity.x = velocity.x * -1;
+    }
+    if ((location.y > height) || (location.y < 0)) {
+      velocity.y = velocity.y * -1;
+    }
+     stroke(0);
+    fill(175);
+    ellipse(location.x, location.y, value, value);
+}
+  void mouseClicked() {
+     if (value == 0) {
+    value = 15;
+  } else {
+    value = 0;
+  }
+}
